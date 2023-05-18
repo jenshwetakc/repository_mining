@@ -3,7 +3,6 @@ import json
 import re
 import time
 
-# REPO_URL = "https://github.com/apache/commons-lang"
 with open("input.json", "r") as file:
     url = json.load(file)
     REPO_URL = url["repo_url"]
