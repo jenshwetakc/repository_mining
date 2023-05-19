@@ -5,7 +5,7 @@ Introduction
 
 Prerequisites
 
-Reuirement
+Requirement
 
 Install
 
@@ -24,7 +24,7 @@ Some common repositories mining includes:
 
 - Code Quality Assessment
 
-- collaboration analysis
+- Collaboration analysis
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ python 3
 
 ## Requirement 
 
-Pydriller
+pydriller
 
 version == 2.4.1
 
@@ -101,10 +101,10 @@ Once the project execution is complete, the output will be displayed in a JSON f
 - Step Eight
 
     - At this point, you should see the Python program files within the cloned repository.
-    - first you have to pass the desired reposirtory url as an input to perform the repository mining in input.json file.
+    - First you have to pass the desired reposirtory url as an input to perform the repository mining in input.json file.
 
 
-- Step Nine: run the program 
+- Step Nine: Run the program 
 
     `python run repository_mining.py`
 
