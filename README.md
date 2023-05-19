@@ -27,8 +27,7 @@ Some common repositories mining includes:
 - Python 3
 - Pydriller
     - To install pi driller use this command 
- Pip install pydriller==version
- - version == 2.4.1
+ Pip install pydriller==2.4.1
 
 ## Input
 To run this project, you will need to provide the path to the project and pass the required parameter(URL) using an input JSON file.
