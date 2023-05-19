@@ -5,10 +5,6 @@ Introduction
 
 Prerequisites
 
-Requirement
-
-Install
-
 Input
 
 Output
@@ -27,23 +23,12 @@ Some common repositories mining includes:
 - Collaboration analysis
 
 ## Prerequisites
-
-python 3
-
-## Requirement 
-
-pydriller
-
-version == 2.4.1
-
-## Install
-
-pydriller 
-
-Requirement : python 3.4 or newer, Git
-
-pip install pydriller
-
+ 
+- Python 3
+- Pydriller
+    - To install pi driller use this command 
+ Pip install pydriller==version
+ - version == 2.4.1
 
 ## Input
 To run this project, you will need to provide the path to the project and pass the required parameter(URL) using an input JSON file.
@@ -101,12 +86,13 @@ Once the project execution is complete, the output will be displayed in a JSON f
 - Step Eight
 
     - At this point, you should see the Python program files within the cloned repository.
-    - First you have to pass the desired reposirtory url as an input to perform the repository mining in input.json file.
+    - Pass the desired reposirtory url as an input to perform the repository mining in input.json. 
+    - To do so change the value of “repo_url” key with desired repository for mining.
 
 
 - Step Nine: Run the program 
 
-    `python run repository_mining.py`
+    `python repository_mining.py`
 
 - Step Ten
 
