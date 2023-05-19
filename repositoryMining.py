@@ -8,8 +8,6 @@ with open("input.json", "r") as file:
     REPO_URL = url["repo_url"]
 
 out = {"location": "", "number_of_commits": 0, "tests_of_commits": []}
-count = 1
-LIMIT = 1000
 pattern = r".test."
 
 start = time.time()
@@ -56,11 +54,6 @@ for commit in Repository(REPO_URL).traverse_commits():
         out["location"] = commit.project_path
         out["tests_of_commits"].append(test_commit)
         out["number_of_commits"] = len(total_commits)
-
-        if count > LIMIT:
-            break
-
-    count += 1
 
 end = time.time()
 total_time = end - start
