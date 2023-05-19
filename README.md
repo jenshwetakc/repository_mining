@@ -20,11 +20,11 @@ Repository mining is the process of extracting imformation and knowledge from so
 
 Some common repositories mining includes:
 
-1.Bug analysis and fixing
+- Bug analysis and fixing
 
-2.Code Quality Assessment
+- Code Quality Assessment
 
-3.collaboration analysis
+- collaboration analysis
 
 ## Prerequisites
 
