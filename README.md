@@ -29,6 +29,8 @@ Some common repositories mining includes:
     - To install pi driller use this command 
     
   `Pip install pydriller==2.4.1`
+  
+  `pip install javalang==0.13.0`
 
 ## Input
 To run this project, you will need to provide the path to the project and pass the required parameter(URL) using an input JSON file.
@@ -70,6 +72,8 @@ Once the project execution is complete, the output will be displayed in a JSON f
 
 
         `pip install Pydriller==2.4.1`
+        
+        `pip install javalang==0.13.0`
 
 - Step six
 
