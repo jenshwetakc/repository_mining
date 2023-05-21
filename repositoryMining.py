@@ -16,8 +16,8 @@ test_class_name_convention = r"\b\w+[tT]est\b"
 test_method_name_convention = r"\btest\w*_?\w+"
 
 # for testing
-count = 1
-LIMIT = 2
+# count = 1
+# LIMIT = 25
 start = time.time()
 is_repo_loaded = True
 
@@ -79,9 +79,9 @@ for commit in Repository(REPO_URL).traverse_commits():
     out["tests_of_commits"] = tests_of_commits
     out["number_of_commits"] = total_commits
     # for testing
-    if count > LIMIT:
-        break
-    count += 1
+    # if count > LIMIT:
+    #     break
+    # count += 1
 
 end = time.time()
 total_time = end - start
