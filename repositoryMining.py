@@ -2,6 +2,7 @@ from pydriller import Repository
 import json
 import re
 import time
+import javalang
 
 # Take input
 with open("input.json", "r") as file:
@@ -17,16 +18,17 @@ test_method_name_convention = r"\btest\w*_?\w+"
 
 # for testing
 # count = 1
-# LIMIT = 25
+# LIMIT = 100
 start = time.time()
 is_repo_loaded = True
-
 
 tests_of_commits = []
 total_commits = 0
 
 
 for commit in Repository(REPO_URL).traverse_commits():
+    list_of_test_classes = []
+    list_of_test_methods = []
     total_commits += 1
 
     if is_repo_loaded:
@@ -45,35 +47,43 @@ for commit in Repository(REPO_URL).traverse_commits():
         )
         if is_test_file:
             source_code = file.source_code
-            # use library to parse
-            # extract method_name and class_name
-            list_of_test_classes = []
-            list_of_test_methods = []
-            for method in file.changed_methods:
-                class_and_method_name = method.name
+            try:
+                tree = javalang.parse.parse(source_code)
 
-                # todo: Need to check the name in this format "classname::methodname"
-                if "::" in class_and_method_name:
-                    class_name = class_and_method_name.split("::")[0]
-                    if re.search(test_class_name_convention, class_name):
-                        if class_name not in list_of_test_classes:
-                            list_of_test_classes.append(class_name)
+                # use library to parse
+                # extract method_name and class_name
 
-                    method_name = class_and_method_name.split("::")[1]
-                    if re.search(test_class_name_convention, class_name):
-                        if re.search(test_method_name_convention, method_name):
-                            method = class_name + ":" + method_name
-                            list_of_test_methods.append(method)
+                for method in file.changed_methods:
+                    class_and_method_name = method.name
 
-            if len(list_of_test_classes) > 0:
-                test_commit = {
-                    "commit": commit.hash,
-                    "num_of_test_classes": len(list_of_test_classes),
-                    "num_of_test_methods": len(list_of_test_methods),
-                    "list_of_test_classes": list_of_test_classes,
-                    "list_of_test_methods": list_of_test_methods,
-                }
-                tests_of_commits.append(test_commit)
+                    # check the name in this format "classname::methodname"
+                    if "::" in class_and_method_name:
+                        class_name = class_and_method_name.split("::")[0]
+                        if re.search(test_class_name_convention, class_name):
+                            package_name = tree.package.name
+                            full_class_name = package_name + "." + class_name
+
+                        method_name = class_and_method_name.split("::")[1]
+                        if re.search(test_class_name_convention, class_name):
+                            if re.search(test_method_name_convention, method_name):
+                                if full_class_name not in list_of_test_classes:
+                                    list_of_test_classes.append(full_class_name)
+                                method = full_class_name + ":" + method_name
+                                list_of_test_methods.append(method)
+            except Exception as error:
+                print(f"Parsing error for commit_id {commit.hash} due to {str(error)}")
+
+    if len(list_of_test_classes) > 0:
+        test_commit = {
+            "commit": commit.hash,
+            "num_of_test_classes": len(list_of_test_classes),
+            "num_of_test_methods": len(list_of_test_methods),
+            "list_of_test_classes": list_of_test_classes,
+            "list_of_test_methods": list_of_test_methods,
+        }
+        tests_of_commits.append(test_commit)
+        list_of_test_classes = []
+        list_of_test_methods = []
 
     out["location"] = commit.project_path
     out["tests_of_commits"] = tests_of_commits
