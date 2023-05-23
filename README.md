@@ -32,7 +32,7 @@ Some common repositories mining includes:
   
 -Javalang 
 
-  - to install javalang use this command
+  - To install javalang use this command
   
     `pip install javalang==0.13.0`
 
