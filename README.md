@@ -54,15 +54,27 @@ Once the project execution is complete, the output will be displayed in a JSON f
     - Navigate to the directory where you want to create your   virtual environment. This can be any location on your system. Use the cd command to change directories.
 
             Example: cd /path/to/my/project
+            
+- Step Three
+  - Step up your virtual enviroment.clone the repository
+  
+    `git clone https://github.com/jenshwetakc/repository_mining`
+    
+- Step Four
 
--   Step Three:
+  - Change to the cloned repository directory:
+  
+     `cd repository_mining`
+     
+-   Step Five:
 
     - Create a virtual environment using the venv module. This module is available by default in Python 3.
+    
     -  Run the following command to create a virtual environment  named "myenv":
         
         `python3 -m venv myenv`
 
-- Step Four
+- Step Six
 
     - Activate the virtual environment
 
@@ -70,26 +82,14 @@ Once the project execution is complete, the output will be displayed in a JSON f
 
             Mac and Ubuntu: source myenv/bin/activate
 
-- Step Five
+- Step Seven
 
     - Your terminal prompt should now indicate that you are working within the virtual environment. It typically looks like (myenv). You can now install any required Python packages using pip.
 
 
         `pip install Pydriller==2.4.1`
         
-        `pip install javalang==0.13.0`
-
-- Step six
-
-    - Once you step up your virtual enviroment.clone the repository
-
-    `git clone https://github.com/jenshwetakc/repository_mining`
-
-- Step Seven
-
-    - Change to the cloned repository directory:
-
-        `cd repository_mining`
+        `pip install javalang==0.13.0`     
 
 - Step Eight
 
@@ -100,7 +100,7 @@ Once the project execution is complete, the output will be displayed in a JSON f
 
 - Step Nine: Run the program 
 
-    `python repository_mining.py`
+    `python repositoryMining.py`
 
 - Step Ten
 
