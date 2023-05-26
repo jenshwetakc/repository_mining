@@ -100,10 +100,10 @@ Once the project execution is complete, the output will be displayed in a JSON f
 
 - Step Nine: Run the program 
     
+     `python repositoryMining.py`
+      
     `python repositoryMiningUsingJavaLang.py`
-    
-    `python repositoryMining.py`
-    
+       
 - Step Ten
 
     - Check output in repositoryOutput.json
